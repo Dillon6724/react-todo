@@ -29,14 +29,17 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log("state in app.js: ", this.state);
+    console.log("***** STATE: ", this.state);
     return (
       <div>
-        <Loading/>
         <h1>Todo List!</h1>
-        <TodoList
+        { this.state.fetching ?
+          <Loading/>
+        :
+          <TodoList
             fullListArray = {this.state.todoList}
-        />
+          />
+        }
       </div>
     )
   }

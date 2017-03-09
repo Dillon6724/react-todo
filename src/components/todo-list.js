@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './todo-item'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -7,11 +8,16 @@ export default class App extends React.Component {
 
 
   render() {
-    console.log("PROPS IN TODOLIST COMPONENT: ", this.props.fullListArray);
     return (
-      <div>
-        <h1>{this.props.fullListArray}</h1>
-      </div>
+      <ol>
+        {this.props.fullListArray.map((todoObj) =>
+          <TodoItem
+            title={todoObj.title}
+            description={todoObj.description}
+            isCompleted={todoObj.isCompleted}
+          />
+        )}
+      </ol>
     )
   }
 }
