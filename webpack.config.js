@@ -20,7 +20,7 @@ module.exports =[
       './src'
     ],
     output: {
-      path: './build',
+      path: './public',
       filename: 'bundle.js'
     },
     resolve: {
