@@ -12,6 +12,7 @@ export default class App extends React.Component {
       <ol>
         {this.props.fullListArray.map((todoObj) =>
           <TodoItem
+            key={todoObj._id}
             title={todoObj.title}
             description={todoObj.description}
             isCompleted={todoObj.isCompleted}

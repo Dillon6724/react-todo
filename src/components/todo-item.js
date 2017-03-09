@@ -5,10 +5,11 @@ export default class App extends React.Component {
     super(props);
   }
 
-
   render() {
     return (
-      <li>{this.props.title}</li>
+      <div>
+        <li>{this.props.title}</li>
+      </div>
     )
   }
 }

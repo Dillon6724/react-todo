@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery'
 import TodoList from './todo-list.js'
 import Loading from './loading.js'
-
+import CreateTodo from './create-todo.js'
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -29,10 +29,12 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log("***** STATE: ", this.state);
+    console.log("                         STATE: ", this.state);
     return (
       <div>
         <h1>Todo List!</h1>
+        <CreateTodo/>
+        <hr/>
         { this.state.fetching ?
           <Loading/>
         :
