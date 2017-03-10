@@ -1,15 +1,38 @@
 body{
   background-color: #f6f6f6;
+  font-family: sans-serif;
 }
 
 ul {
   list-style: none;
 }
 
+.app-title {
+  text-align: center;
+  color: #6e5bc6;
+  font-size: 55px;
+  font-family: Pacifico;
+}
+
+.create-form {
+  
+}
+
+.form-hidden {
+  display: none;
+}
+
 .list-container {
   list-style: none;
   display: inline;
-  .todo-item {
+    .description {
+      font-size: 15px;
+      color: black;
+      text-align: left;
+    }
+  }
+
+  .todo-item, .add-todo-block {
     vertical-align: top;
     background-color: #b7d5f7;
     width: 350px;
@@ -19,13 +42,21 @@ ul {
     color: white;
     font-size:30px;
     text-align: center;
+
     .todo-title {
       font-size: 28px;
+      margin: 10px;
     }
-    .description {
-      font-size: 15px;
-      color: black;
-      text-align: left;
-    }
+}
+
+.add-todo-block {
+  text-align: center;
+  line-height: 204px;
+  font-size: 147px;
+  font-family: Pacifico;
+  color: #eaeaea;
+  cursor: pointer;
+  &:hover {
+    color: white;
   }
 }

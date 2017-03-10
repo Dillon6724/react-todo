@@ -72,11 +72,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Todo List!</h1>
-        <CreateTodo
-          createNewTodo = {this.createNewTodo}
-        />
-        <hr/>
+        <h1 className="app-title">ToDon't </h1>
         { this.state.fetching ?
           <Loading/>
         :
@@ -84,6 +80,7 @@ export default class App extends React.Component {
             fullListArray = {this.state.todoList}
             deleteTodo = {this.deleteTodo}
             updateTodo={this.updateTodo}
+            createNewTodo={this.createNewTodo}
           />
         }
       </div>

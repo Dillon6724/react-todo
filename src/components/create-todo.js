@@ -17,7 +17,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="create-form form-hidden">
         <input type="text" ref={(input) => { this.title = input; }} placeholder="title" />
         <br/>
         <input type="text" ref={(input) => { this.description = input; }} placeholder="description" />
