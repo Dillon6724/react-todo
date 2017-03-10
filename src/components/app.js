@@ -3,6 +3,8 @@ import $ from 'jquery'
 import TodoList from './todo-list.js'
 import Loading from './loading.js'
 import CreateTodo from './create-todo.js'
+import { render } from 'react-dom'
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +13,7 @@ export default class App extends React.Component {
       fetching: true,
       todoList: []
     }
+    this.createNewTodo = this.createNewTodo.bind(this)
   }
 
   componentDidMount() {
@@ -28,12 +31,28 @@ export default class App extends React.Component {
     })
   }
 
+  createNewTodo(newTodoObj) {
+    this.setState({fetching:true})
+    $.ajax({
+      method: 'POST',
+      url: 'http://localhost:3000/todos',
+      data: newTodoObj,
+      success:((data) => {
+        this.getTodos();
+      }).bind(this),
+      error:((err) => {
+      }).bind(this)
+    })
+  }
+
   render() {
-    console.log("                         STATE: ", this.state);
+    console.log("                                         STATE: ", this.state);
     return (
       <div>
         <h1>Todo List!</h1>
-        <CreateTodo/>
+        <CreateTodo
+          createNewTodo = {this.createNewTodo}
+        />
         <hr/>
         { this.state.fetching ?
           <Loading/>

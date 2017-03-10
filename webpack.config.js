@@ -40,33 +40,33 @@ module.exports =[
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin()
     ]
-  },
-
-  //////////////////// SERVER /////////////////////
-  {
-    name: 'server',
-    target: 'node',
-    entry: './server/express.js',
-    output: {
-      path: './build',
-      filename: './server/app.js'
-    },
-    externals: nodeModules,
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          loaders: ['react-hot', 'babel-loader']
-        },
-        {
-          test:  /\.json$/,
-          loader: 'json-loader'
-        }
-      ]
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin()
-    ]
   }
+
+  // //////////////////// SERVER /////////////////////
+  // {
+  //   name: 'server',
+  //   target: 'node',
+  //   entry: './server/express.js',
+  //   output: {
+  //     path: './build',
+  //     filename: './server/app.js'
+  //   },
+  //   externals: nodeModules,
+  //   module: {
+  //     loaders: [
+  //       {
+  //         test: /\.js$/,
+  //         loaders: ['react-hot', 'babel-loader']
+  //       },
+  //       {
+  //         test:  /\.json$/,
+  //         loader: 'json-loader'
+  //       }
+  //     ]
+  //   },
+  //   plugins: [
+  //     new webpack.HotModuleReplacementPlugin(),
+  //     new webpack.NoErrorsPlugin()
+  //   ]
+  // }
 ]
