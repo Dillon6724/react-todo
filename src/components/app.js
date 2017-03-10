@@ -4,6 +4,7 @@ import TodoList from './todo-list.js'
 import Loading from './loading.js'
 import CreateTodo from './create-todo.js'
 import { render } from 'react-dom'
+import './styles.scss'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -69,7 +70,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log("                                            STATE: ", this.state);
     return (
       <div>
         <h1>Todo List!</h1>

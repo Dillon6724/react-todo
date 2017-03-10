@@ -30,9 +30,14 @@ module.exports =[
     module: {
       loaders: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+        },
+        {
+          test: /\.(css|scss)$/,
+          exclude: /node_modules/,
+          loaders: ['style-loader', 'css-loader', 'sass-loader']
         }
       ]
     },
@@ -41,32 +46,4 @@ module.exports =[
       new webpack.NoErrorsPlugin()
     ]
   }
-
-  // //////////////////// SERVER /////////////////////
-  // {
-  //   name: 'server',
-  //   target: 'node',
-  //   entry: './server/express.js',
-  //   output: {
-  //     path: './build',
-  //     filename: './server/app.js'
-  //   },
-  //   externals: nodeModules,
-  //   module: {
-  //     loaders: [
-  //       {
-  //         test: /\.js$/,
-  //         loaders: ['react-hot', 'babel-loader']
-  //       },
-  //       {
-  //         test:  /\.json$/,
-  //         loader: 'json-loader'
-  //       }
-  //     ]
-  //   },
-  //   plugins: [
-  //     new webpack.HotModuleReplacementPlugin(),
-  //     new webpack.NoErrorsPlugin()
-  //   ]
-  // }
 ]
