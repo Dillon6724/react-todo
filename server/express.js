@@ -27,7 +27,6 @@ server.post('/todos', function(req, res) {
   var newTodo = new Todo({title: req.body.title, description: req.body.description, isCompleted: false})
   newTodo.save(function(err) {
     if(err) {
-      console.log(" ************** ERROR: ", err)
       res.status(500).send("FIX THIS")
     }
     else {
@@ -35,6 +34,27 @@ server.post('/todos', function(req, res) {
     }
   })
 })
+
+server.delete('/todo/delete/:id', function(req, res) {
+  Todo.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {
+      res.status(500).send("FIX THIS")
+    } else {
+      res.status(200).send("YAY")
+    }
+  })
+})
+
+server.put('/todo/update/:id', function (req, res) {
+	var updated = req.body
+	Todo.findByIdAndUpdate(req.params.id, updated, function (err, newTodo) {
+		if(!err) {
+			res.status(200).send(newTodo)
+		} else {
+      res.status(500).send(err)
+		}
+	})
+});
 
 server.listen(3000, function () {
   console.log('Server runninggggggggggggggg on 3000');

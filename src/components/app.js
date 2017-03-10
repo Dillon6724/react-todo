@@ -10,18 +10,21 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      fetching: true,
+      fetching: false,
       todoList: []
     }
     this.createNewTodo = this.createNewTodo.bind(this)
+    this.deleteTodo = this.deleteTodo.bind(this)
+    this.updateTodo = this.updateTodo.bind(this)
+
   }
 
   componentDidMount() {
-    this.getTodos()
+    this.getTodos(true)
   }
 
-  getTodos() {
-    this.setState({fetching:true})
+  getTodos(shouldLoad = false) {
+    if (shouldLoad) {this.setState({fetching:true})}
     $.ajax({
       method: 'GET',
       url: 'http://localhost:3000/todos',
@@ -32,7 +35,6 @@ export default class App extends React.Component {
   }
 
   createNewTodo(newTodoObj) {
-    this.setState({fetching:true})
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3000/todos',
@@ -45,8 +47,29 @@ export default class App extends React.Component {
     })
   }
 
+  deleteTodo(key) {
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:3000/todo/delete/' + key,
+      success:((data) => {
+        this.getTodos();
+      }).bind(this)
+    })
+  }
+
+  updateTodo(key, updatedData) {
+    $.ajax({
+      method: 'PUT',
+      url: 'http://localhost:3000/todo/update/' + key,
+      data: updatedData,
+      success:((data) => {
+        this.getTodos();
+      }).bind(this)
+    })
+  }
+
   render() {
-    console.log("                                         STATE: ", this.state);
+    console.log("                                            STATE: ", this.state);
     return (
       <div>
         <h1>Todo List!</h1>
@@ -59,6 +82,8 @@ export default class App extends React.Component {
         :
           <TodoList
             fullListArray = {this.state.todoList}
+            deleteTodo = {this.deleteTodo}
+            updateTodo={this.updateTodo}
           />
         }
       </div>

@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -16,7 +14,6 @@ export default class App extends React.Component {
     }
     this.props.createNewTodo(newTodoObj);
   }
-
 
   render() {
     return (
