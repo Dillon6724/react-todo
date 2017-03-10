@@ -1,3 +1,31 @@
 body{
-  background-color: blanchedalmond;
+  background-color: #f6f6f6;
+}
+
+ul {
+  list-style: none;
+}
+
+.list-container {
+  list-style: none;
+  display: inline;
+  .todo-item {
+    vertical-align: top;
+    background-color: #b7d5f7;
+    width: 350px;
+    margin: 0px 8px 8px 0px;
+    height: 250px;
+    display: inline-block;
+    color: white;
+    font-size:30px;
+    text-align: center;
+    .todo-title {
+      font-size: 28px;
+    }
+    .description {
+      font-size: 15px;
+      color: black;
+      text-align: left;
+    }
+  }
 }

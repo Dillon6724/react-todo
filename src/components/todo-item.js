@@ -1,6 +1,7 @@
 import React from 'react';
 import Delete from './delete'
 import Update from './update'
+import './styles.scss'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -9,9 +10,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <li>{this.props.title}
-          <ul><li>{this.props.description}</li></ul>
+      <div className="list-container">
+        <li className="todo-item">
+          <h1 className="todo-title">{this.props.title}</h1>
+          <ul><li className="description">{this.props.description}</li></ul>
           <Delete
             id ={this.props.id}
             deleteTodo = {this.props.deleteTodo}
