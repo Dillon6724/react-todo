@@ -7,6 +7,11 @@ ul {
   list-style: none;
 }
 
+ol {
+  margin: 0 auto;
+  max-width: 1074px;
+}
+
 .app-title {
   text-align: center;
   color: #6e5bc6;
@@ -15,10 +20,13 @@ ul {
 }
 
 .create-form {
-  
+  line-height: 34px;
+  display: inline-block;
+  position: relative;
+  top: -29px;
 }
 
-.form-hidden {
+.hidden {
   display: none;
 }
 
@@ -28,7 +36,8 @@ ul {
     .description {
       font-size: 15px;
       color: black;
-      text-align: left;
+      text-align: justify;
+      margin-right: 30px;
     }
   }
 
@@ -45,7 +54,7 @@ ul {
 
     .todo-title {
       font-size: 28px;
-      margin: 10px;
+      margin: -15px 10px 0px;
     }
 }
 
@@ -55,8 +64,40 @@ ul {
   font-size: 147px;
   font-family: Pacifico;
   color: #eaeaea;
-  cursor: pointer;
+}
+.close-button {
+  color: #eaeaea;
+  font: 21px sans-serif;
+  position: relative;
+  right: -330px;
+  top: -280px;
+  width: 17px;
   &:hover {
     color: white;
+    cursor: pointer;
   }
+}
+
+.delete-button {
+  border: none;
+  background-color: transparent;
+  top: 200px;
+  font-size: 20px;
+  left: -21px;
+}
+
+.edit-button {
+  position: relative;
+  top: 200px;
+  color: #eaeaea;
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.add-button:hover {
+  color: white;
+  cursor: pointer;
+
 }

@@ -8,13 +8,15 @@ export default class App extends React.Component {
     super(props);
   }
 
+    toggleTodoForm () {
+      const form = document.getElementsByClassName('create-form');
+      const addButton = document.getElementsByClassName('add-button');
+      const closeButton = document.getElementsByClassName('close-create');
 
-    showAddTodoForm () {
-    const form = document.getElementsByClassName('form-hidden')
-    const addTodoBlock = document.getElementsByClassName('add-todo-block')
-    console.log(form)
-    form[0].style.display = "inline-block"
-    addTodoBlock[0].innerHTML = ""
+      form[0].classList.toggle('hidden');
+      addButton[0].classList.toggle('hidden');
+      closeButton[0].classList.toggle('hidden');
+      form[0].reset();
     }
 
   render() {
@@ -32,10 +34,12 @@ export default class App extends React.Component {
           />
         )}
 
-        <li onClick= {this.showAddTodoForm} className="add-todo-block">+
+        <li className="add-todo-block">
+          <div onClick={this.toggleTodoForm} className="add-button">+</div>
           <CreateTodo
             createNewTodo = {this.props.createNewTodo}
           />
+          <div onClick={this.toggleTodoForm} className="close-create close-button hidden">X</div>
         </li>
       </ol>
     )

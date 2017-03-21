@@ -18,8 +18,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" ref={(input) => { this.updateTitle = input; }} placeholder="update title" />
-        <input type="text" ref={(input) => { this.updateDescription = input; }} placeholder="update description" />
+        <input type="text" value={this.props.title} ref={(input) => { this.updateTitle = input; }} placeholder="update title" />
+        <input type="text" value={this.props.description} ref={(input) => { this.updateDescription = input; }} placeholder="update description" />
         <button onClick={this.handleUpdate} ref={(input) => { this.id = input; }} value={this.props.id}>update</button>
       </div>
     )

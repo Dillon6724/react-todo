@@ -12,15 +12,18 @@ export default class App extends React.Component {
     return (
       <div className="list-container">
         <li className="todo-item">
-          <h1 className="todo-title">{this.props.title}</h1>
-          <ul><li className="description">{this.props.description}</li></ul>
+          <span className="delete-button edit-button">EDIT</span>
           <Delete
             id ={this.props.id}
             deleteTodo = {this.props.deleteTodo}
           />
+          <h1 className="todo-title">{this.props.title}</h1>
+          <ul><li className="description">{this.props.description}</li></ul>
           <Update
             id={this.props.id}
             updateTodo={this.props.updateTodo}
+            title={this.props.title}
+            description={this.props.description}
           />
         </li>
       </div>
