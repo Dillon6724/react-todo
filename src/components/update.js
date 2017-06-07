@@ -18,9 +18,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.props.title} ref={(input) => { this.updateTitle = input; }} placeholder="update title" />
-        <input type="text" value={this.props.description} ref={(input) => { this.updateDescription = input; }} placeholder="update description" />
-        <button onClick={this.handleUpdate} ref={(input) => { this.id = input; }} value={this.props.id}>update</button>
+        <input type="text" defaultValue={this.props.title} ref={(input) => { this.updateTitle = input; }} className="form-block" placeholder="update title" />
+        <input type="text" defaultValue={this.props.description} ref={(input) => { this.updateDescription = input; }} className="form-block" placeholder="update description" />
+        <button onClick={this.handleUpdate} ref={(input) => { this.id = input; }} value={this.props.id} className="form-block" >update</button>
       </div>
     )
   }

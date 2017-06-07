@@ -12,6 +12,11 @@ ol {
   max-width: 1074px;
 }
 
+.form-block {
+  display: block;
+  margin: 0 auto 10px;
+}
+
 .app-title {
   text-align: center;
   color: #6e5bc6;
@@ -70,7 +75,7 @@ ol {
   font: 21px sans-serif;
   position: relative;
   right: -330px;
-  top: -280px;
+  top: -200px;
   width: 17px;
   &:hover {
     color: white;
@@ -100,4 +105,10 @@ ol {
   color: white;
   cursor: pointer;
 
+}
+
+.add-todo-title {
+  font-size: 30px;
+  color: white;
+  margin: 15px;
 }

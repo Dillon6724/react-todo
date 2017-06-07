@@ -1,18 +1,23 @@
 import React from 'react';
-import Delete from './delete'
-import Update from './update'
-import './styles.scss'
+import Delete from './delete';
+import Update from './update';
+import './styles.scss';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    this.toogleUpdateFormVisability = this.toogleUpdateFormVisability.bind(this)
+  }
+
+  toogleUpdateFormVisability () {
+    this.props.toggleUpdateForm()
   }
 
   render() {
     return (
       <div className="list-container">
         <li className="todo-item">
-          <span className="delete-button edit-button">EDIT</span>
+          <span className="delete-button edit-button" onClick={this.toogleUpdateFormVisability}>EDIT</span>
           <Delete
             id ={this.props.id}
             deleteTodo = {this.props.deleteTodo}

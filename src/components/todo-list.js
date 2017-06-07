@@ -31,6 +31,7 @@ export default class App extends React.Component {
             isCompleted={todoObj.isCompleted}
             deleteTodo={this.props.deleteTodo}
             updateTodo={this.props.updateTodo}
+            toggleUpdateForm={this.props.toggleUpdateForm}
           />
         )}
 

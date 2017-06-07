@@ -15,15 +15,17 @@ export default class App extends React.Component {
     this.props.createNewTodo(newTodoObj);
   }
 
+  handleChange () {
+    console.log('changing')
+  }
+
   render() {
     return (
       <form className="create-form hidden">
-        <input type="text" ref={(input) => { this.title = input; }} placeholder="title" />
-        <br/>
-        <input type="text" ref={(input) => { this.description = input; }} placeholder="description" />
-        <br/>
-        <button type="button" onClick={this.handleSubmit}>Submit</button>
-        <br/>
+        <h3 className="add-todo-title"> Add a New ToDon't </h3>
+        <input type="text" defaultValue="" ref={(input) => { this.title = input; }} className="form-block" placeholder="title" />
+        <input type="text" ref={(input) => { this.description = input; }} className="form-block" placeholder="description" />
+        <button type="button" onClick={this.handleSubmit} className="form-block" >Submit</button>
       </form>
     )
   }

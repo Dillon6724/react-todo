@@ -12,12 +12,13 @@ export default class App extends React.Component {
 
     this.state = {
       fetching: false,
-      todoList: []
+      todoList: [],
+      updateFormIsHidden: true
     }
     this.createNewTodo = this.createNewTodo.bind(this)
     this.deleteTodo = this.deleteTodo.bind(this)
     this.updateTodo = this.updateTodo.bind(this)
-
+    this.toggleUpdateForm = this.toggleUpdateForm.bind(this)
   }
 
   componentDidMount() {
@@ -69,6 +70,10 @@ export default class App extends React.Component {
     })
   }
 
+  toggleUpdateForm () {
+    this.setState({updateFormIsHidden: !this.state.updateFormIsHidden})
+  }
+
   render() {
     return (
       <div>
@@ -81,6 +86,7 @@ export default class App extends React.Component {
             deleteTodo = {this.deleteTodo}
             updateTodo={this.updateTodo}
             createNewTodo={this.createNewTodo}
+            toggleUpdateForm={this.toggleUpdateForm}
           />
         }
       </div>
